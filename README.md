@@ -1,6 +1,6 @@
 # Godot Game Development
 
-Games made with [Godot Engine](https://godotengine.org/), free and open-source game engine.
+Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
 
 - [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)
 - Hoopy Days - Discovering the Engine
@@ -25,7 +25,7 @@ NodeName are named like this: LoonyLips;
 # inherits properties of Control node (class), it get automatically added when attaching script to a node (Control in this case)
 extends Control
 
-// _ready() function run at start like a main() fxn in C++
+# _ready() function run at start like a main() fxn in C++
 
 func _ready():
 	var person = "Yann"
@@ -46,7 +46,7 @@ func _ready():
 ```
 
 ```
-// Output
+# Output
  
 Hello Yann
 Hello Someone else
@@ -69,17 +69,17 @@ Change default size of the window, Project -> Project Setting -> General -> Wind
 Custom fonts can be added by creating new dynamic font from inspector, margin, auto-wrap etc can be done.
 
 ```gd
-// Access the child node
-// Hover over the Properties of Node in Inspector to know the property name of it, so we can access them using . operator
-// We can also drag Node to script to access the path along its name (Label in this case)
+# Access the child node
+# Hover over the Properties of Node in Inspector to know the property name of it, so we can access them using . operator
+# We can also drag Node to script to access the path along its name (Label in this case)
 get_node("Label").text = "Changed Text"
 $Label.text = "Another Changed Text"
 
-// Use "" to access node with space in its name
-// However its not a convention to do so
+# Use "" to access node with space in its name
+# However its not a convention to do so
 $"Label Name".text = "Text for label name"
 
-// Showing Story to screen
+# Showing Story to screen
 var prompts = ["Yann", "Minions", "Greatest"]
 var story = "Once upon a time %s watched %s and thought is was the %s movie of the past two decades"
 	
@@ -104,7 +104,7 @@ We can change alignment, margins etc
 Select LineEdit, In node tab, click text_entered and connect to first node where script is attached
 
 ```gd
-// This fxn will get automatically added
+# This fxn will get automatically added
 func _on_PlayerText_text_entered(new_text):
 	pass # Replace with function body.
 	$Label.text = new_text
@@ -120,7 +120,7 @@ TextureButton -> Rect -> Set the proper size to match the look of LineEdit. This
 HBoxContainer and VBoxContainer has Custom Constants -> Separation property to set the spacing between child nodes.
   
 ```gd
-// Changing screen's text when button is pressed
+# Changing screen's text when button is pressed
 func _on_TextureButton_pressed():
 	var new_text = $VBoxContainer/HBoxContainer/LineEdit.text
 	update_Label(new_text)
