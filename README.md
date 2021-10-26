@@ -210,6 +210,12 @@ export var prompts : PoolStringArray
 export var story : String # Accepts string only
 
 # export is for making the variable available in inspector tab, So even if script is same, the variable's value for each node can be different
+func set_current_story():
+	randomize() # shuffle the random number using time
+	var stories = $StoryBook.get_child_count() # getting number of children
+	var selected_story = randi() % stories # randi() returns random integer
+	current_story.prompts = $StoryBook.get_child(selected_story).prompts # Accessing child based on index
+	current_story.story = $StoryBook.get_child(selected_story).story
 ```
 
 We can make a Storybook with 'Node' node which doesn't have much properties to add children nodes 'Node' which will contain each story.  
