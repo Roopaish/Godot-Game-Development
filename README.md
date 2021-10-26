@@ -178,20 +178,25 @@ get_tree().reload_current_scene()
 
 Key-value pairs.
 ```gdscript
-var template = [
-		{
-			"prompts": ["a name", "a noun", "adverb", "adjective"],
-			"story": "Once upon a time someone called %s ate a %s flavored sandwich which made him feel %s inside. It was a %s day.",
-		},
-		{
-			"prompts": ["a noun", "a name", "adjective", "another name"],
-			"story":"There once was a %s called %s who searched far and wide for mythical %s noun of %s"
-		},
-
-func set_current_story():
-	randomize() # suffle the random number using time so that randi() is different everytime
-	current_story = template[randi() % template.size()]
+var template ={
+		"prompts": ["a name", "a noun", "adverb", "adjective"],
+		"story": "Once upon a time someone called %s ate a %s flavored sandwich which made him feel %s inside. It was a %s day.",
+		}
 ```
+
+- Dynamic and Typed gdscript
+
+In dynamic gdscript, variable can change. variable can be string at one time, array at another and so on.  
+Typed gdscript is opposite of dynamic gdscript.  
+
+```gdscript
+// : PoolStringArray we are making gdscript typed, so that only String will be stored in the array
+export var prompts : PoolStringArray
+
+// export is for making the variable available in inspector tab, So even if script is same, the variable's value for each node can be different
+```
+
+
 
 
 - Inspector Tab
