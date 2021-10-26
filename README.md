@@ -2,7 +2,8 @@
 
 Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
 
-- [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)
+- [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
+[Play online](1https://roopaish.github.io/Godot-Game-Development/exports/Loony%20Lips/exports.html)
 - Hoopy Days - Discovering the Engine
 - Heist Meisters - Top-Down-Stealth
 - CubeDude Kickabout - 3D Local Multiplayer
