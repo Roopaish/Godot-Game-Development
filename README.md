@@ -10,22 +10,22 @@ Games made with [Godot Engine](https://godotengine.org/), free and open-source g
 
 ## Loony Lips - Discovering GDScript
 
-- Theme
+- ### Theme
 
 A Word game,  
 Ask for a word based on type(nouns, verb, etc)  
-Then plug the words into expnadable template for stories
+Then plug the words into expandable template for stories
 
-- Basics and Arrays
+- ### Basics and Arrays
 
-Godot is comprised of nodes. Nodes can have childrens. It's just like Widgets of Flutter.
+Godot is comprised of nodes. Nodes can have children. It's just like Widgets of Flutter.
 NodeName are named like this: LoonyLips;  
 
-```gdscript
+```gd
 # inherits properties of Control node (class), it get automatically added when attaching script to a node (Control in this case)
 extends Control
 
-// _ready() fucntion run at start like a main() fxn in C++
+// _ready() function run at start like a main() fxn in C++
 
 func _ready():
 	var person = "Yann"
@@ -54,11 +54,11 @@ Once upon a time Yann watched Minions and thought is was the Greatest movie of t
 Once upon a time Izabella watched Dune and thought is was the Biggest movie of the past two
 ```
 
-- TextureRect, Label  
+- ### TextureRect, Label  
 
 `TextureRect node for background`  
 Drag background to Texture in Inspector. Press play, when resizing the window, it looks like the background is cutting but not expanding.  
-So go back and click on expand. Changes won't be reflected on the editor, so add a new scene and come back to the previuos scene, changes will be refelected and the background will look small. 
+So go back and click on expand. Changes won't be reflected on the editor, so add a new scene and come back to the previous scene, changes will be reflected and the background will look small. 
   
 Click on the node -> Layout -> Anchors only -> Full rect to measure the bounding rectangle(screen) so it knows where to expand.  
 Now click node -> Layout -> Full Rect. Now the texture will cover the full rectangle and will shrink and expand on changing screen sizes.
@@ -66,9 +66,9 @@ Now click node -> Layout -> Full Rect. Now the texture will cover the full recta
 Change default size of the window, Project -> Project Setting -> General -> Window -> Under Size
 
 `label node is used display something on the screen`  
-Custom fonts can be added by creating new dynamic font from inpector, margin, auto-wrap etc can be done.
+Custom fonts can be added by creating new dynamic font from inspector, margin, auto-wrap etc can be done.
 
-```gdscript
+```gd
 // Access the child node
 // Hover over the Properties of Node in Inspector to know the property name of it, so we can access them using . operator
 // We can also drag Node to script to access the path along its name (Label in this case)
@@ -76,7 +76,7 @@ get_node("Label").text = "Changed Text"
 $Label.text = "Another Changed Text"
 
 // Use "" to access node with space in its name
-// However its not a convenion to do so
+// However its not a convention to do so
 $"Label Name".text = "Text for label name"
 
 // Showing Story to screen
@@ -88,11 +88,11 @@ $DisplayText.text = story % prompts
 
 There's RichLabelText which is like Label but we can make certain part of text underlined, bold etc.(Bb code)
 
-- LineEdit, VBoxContainer, HBoxContainer, Button
+- ### LineEdit, VBoxContainer, HBoxContainer, TextureButton
 
 Getting text from Player  
 `LineEdit is for single line input` and `TextEdit for multi line input`  
-```gdscript
+```gd
 # shift focus to the LineEdit, so that we can start typing immediately
 func _ready():
 	LineEdit.grab_focus()
@@ -103,7 +103,7 @@ We can change alignment, margins etc
 
 Select LineEdit, In node tab, click text_entered and connect to first node where script is attached
 
-```gdscript
+```gd
 // This fxn will get automatically added
 func _on_PlayerText_text_entered(new_text):
 	pass # Replace with function body.
@@ -115,11 +115,11 @@ func _on_PlayerText_text_entered(new_text):
 `TextureButton to make a button with textures`  
 Here TextureButton and LineEdit are placed in HBoxContainer. LineEdit  -> Size Flags -> Expand (so it will expand to available space).   
   
-TextureButton -> Rect -> Set the proper size to match the look of LineEdit. This will set the size of Node not the texture. TextureButton -> Turn expand on (it will vanis) , now go to Rect and give the node a minimum size. Everything will work now.  
+TextureButton -> Rect -> Set the proper size to match the look of LineEdit. This will set the size of Node not the texture. TextureButton -> Turn expand on (it will vanish) , now go to Rect and give the node a minimum size. Everything will work now.  
   
-HBoxContainer and VBoxConatainer has Custom Constants -> Separation property to set the spacing between child nodes.
+HBoxContainer and VBoxContainer has Custom Constants -> Separation property to set the spacing between child nodes.
   
-```gdscript
+```gd
 // Changing screen's text when button is pressed
 func _on_TextureButton_pressed():
 	var new_text = $VBoxContainer/HBoxContainer/LineEdit.text
@@ -127,9 +127,9 @@ func _on_TextureButton_pressed():
 
 ```
 
-- array methods and if-else
+- ### array methods and if-else
 
-```gdscript
+```gd
 func add_to_player_words():
 	player_words.append(PlayerText.text)
 	# Add new elements in the array
@@ -147,26 +147,26 @@ func check_player_words_length():
 		pass
 ```
 
-```gdscript
+```gd
 # onready means the variable will be assigned after nodes are loaded completely
 onready var SomeNode = $Label 
 ```
 
-- queue_free(), reload_current_scene()
+- ### Node methods
 
-```gdscript
+```gd
 # changing node visibility
 PlayerText.visible = false # true to show
 # or
 PlayerText.hide() # .show() to show
 ```
 
-```gdscript
+```gd
 # getting rid of node from memory
 PlayerText.queue_free()
 ```
 
-```gdscript
+```gd
 # get entire scene tree
 get_tree()
 
@@ -174,28 +174,33 @@ get_tree()
 get_tree().reload_current_scene()
 ```
 
-- Dictionary
+- ### Dictionary
 
 Key-value pairs.
-```gdscript
+```gd
 var template ={
 		"prompts": ["a name", "a noun", "adverb", "adjective"],
 		"story": "Once upon a time someone called %s ate a %s flavored sandwich which made him feel %s inside. It was a %s day.",
 		}
 ```
 
-- Dynamic and Typed gdscript
+- ### Dynamic and Typed gdscript
 
 In dynamic gdscript, variable can change. variable can be string at one time, array at another and so on.  
 Typed gdscript is opposite of dynamic gdscript.  
 
-```gdscript
-// : PoolStringArray we are making gdscript typed, so that only String will be stored in the array
+```gd
+# : PoolStringArray we are making gdscript typed, so that only String will be stored in the array
 export var prompts : PoolStringArray
+export var story : String # Accepts string only
 
-// export is for making the variable available in inspector tab, So even if script is same, the variable's value for each node can be different
+# export is for making the variable available in inspector tab, So even if script is same, the variable's value for each node can be different
 ```
 
+We can make a Storybook with 'Node' node which doesn't have much properties to add children nodes 'Node' which will contain each story.  
+However, its not quite efficient if player wants to add a new story and also its a lot of work.
+
+- ### JSON
 
 
 
@@ -203,10 +208,10 @@ export var prompts : PoolStringArray
 
 We can manage the property of nodes in it
 
-Rect to cahnge position, size, minSize,  
+Rect to change position, size, minSize,  
 Custom Font to add a new dynamic font where custom font can be added.  
 
-Size Falgs to expand, fill, shrink,cent, shrink,e nd used with HboxContainer and VboxContainer childs
+Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
 
 
 - Node Tab
