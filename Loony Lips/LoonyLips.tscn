@@ -36,38 +36,35 @@ __meta__ = {
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 24.0
-margin_top = 24.0
-margin_right = -24.0
-margin_bottom = -24.0
-alignment = 2
+anchor_left = 0.249
+anchor_top = 0.157
+anchor_right = 0.733
+anchor_bottom = 0.855
+margin_left = 0.0239868
+margin_top = -0.200005
+margin_right = 0.407959
+rect_clip_content = true
+alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="DisplayText" type="Label" parent="VBoxContainer"]
-margin_top = 75.0
-margin_right = 976.0
-margin_bottom = 475.0
-rect_min_size = Vector2( 0, 400 )
-custom_fonts/font = SubResource( 1 )
+[node name="DisplayText" type="RichTextLabel" parent="VBoxContainer"]
+margin_right = 496.0
+margin_bottom = 342.0
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
 text = "Placeholder Text"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 479.0
-margin_right = 976.0
-margin_bottom = 552.0
+margin_top = 346.0
+margin_right = 496.0
+margin_bottom = 419.0
 custom_constants/separation = 12
 alignment = 2
 
 [node name="PlayerText" type="LineEdit" parent="VBoxContainer/HBoxContainer"]
-margin_right = 832.0
+margin_right = 352.0
 margin_bottom = 73.0
 size_flags_horizontal = 3
 custom_fonts/font = SubResource( 2 )
@@ -76,8 +73,8 @@ __meta__ = {
 }
 
 [node name="TextureButton" type="TextureButton" parent="VBoxContainer/HBoxContainer"]
-margin_left = 844.0
-margin_right = 917.0
+margin_left = 364.0
+margin_right = 437.0
 margin_bottom = 73.0
 rect_min_size = Vector2( 73, 73 )
 texture_normal = ExtResource( 4 )
@@ -85,9 +82,9 @@ texture_pressed = ExtResource( 5 )
 expand = true
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
-margin_left = 929.0
+margin_left = 449.0
 margin_top = 5.0
-margin_right = 976.0
+margin_right = 496.0
 margin_bottom = 68.0
 custom_fonts/font = SubResource( 3 )
 text = "ok"

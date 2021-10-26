@@ -54,6 +54,19 @@ Once upon a time Yann watched Minions and thought is was the Greatest movie of t
 Once upon a time Izabella watched Dune and thought is was the Biggest movie of the past two
 ```
 
+- ### Inspector Tab
+
+We can manage the property of nodes in it
+
+Rect to change position, size, minSize,  
+Custom Font to add a new dynamic font where custom font can be added.
+
+Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
+
+- ### Node Tab
+
+Signals\Listeners can be added to a certain node. When certain thing happens on one node, it sends signals to the connected node where we can do things related to that specific signal through script attached to receiving node.
+
 - ### TextureRect, Label
 
 `TextureRect node for background`  
@@ -86,7 +99,7 @@ var story = "Once upon a time %s watched %s and thought is was the %s movie of t
 $DisplayText.text = story % prompts
 ```
 
-There's RichLabelText which is like Label but we can make certain part of text underlined, bold etc.(Bb code)
+There's RichLabelText which is like Label but we can make certain part of text underlined, bold etc.(Bb code) And It is scrollable, if it doesn't fit
 
 - ### LineEdit, VBoxContainer, HBoxContainer, TextureButton
 
@@ -207,8 +220,8 @@ However, its not quite efficient if player wants to add a new story and also its
 JavaScript Object notation, like a dictionary.
 It can't be opened in godot, so other editors are required.  
 Pros of JSON:  
-	Good code  
-	Easy to mod game
+ Good code  
+ Easy to mod game
 
 ```gd
 # Reading file from json
@@ -221,15 +234,9 @@ func get_from_json(filename):
 	return data
 ```
 
-- Inspector Tab
+- ### Exporting the game
 
-We can manage the property of nodes in it
-
-Rect to change position, size, minSize,  
-Custom Font to add a new dynamic font where custom font can be added.
-
-Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
-
-- Node Tab
-
-Signals\Listeners can be added to a certain node. When certain thing happens on one node, it sends signals to the connected node where we can do things related to that specific signal through script attached to receiving node.
+Project -> Export -> Add -> Windows Desktop  
+If export template not available already, Click Manage Export Template -> Download -> Click on the lick provided. Download will start now.  
+  
+Now click close it and click Project -> Export -> Add -> Windows Desktop -> choose location and export
