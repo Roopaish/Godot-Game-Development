@@ -19,7 +19,7 @@ Then plug the words into expandable template for stories
 - ### Basics and Arrays
 
 Godot is comprised of nodes. Nodes can have children. It's just like Widgets of Flutter.
-NodeName are named like this: LoonyLips;  
+NodeName are named like this: LoonyLips;
 
 ```gd
 # inherits properties of Control node (class), it get automatically added when attaching script to a node (Control in this case)
@@ -30,7 +30,7 @@ extends Control
 func _ready():
 	var person = "Yann"
 	print("Hello " + person)
-	
+
 	person = "Someone else"
 	print("Hello World!" + person)
 
@@ -47,19 +47,19 @@ func _ready():
 
 ```
 # Output
- 
+
 Hello Yann
 Hello Someone else
 Once upon a time Yann watched Minions and thought is was the Greatest movie of the past two decades
 Once upon a time Izabella watched Dune and thought is was the Biggest movie of the past two
 ```
 
-- ### TextureRect, Label  
+- ### TextureRect, Label
 
 `TextureRect node for background`  
 Drag background to Texture in Inspector. Press play, when resizing the window, it looks like the background is cutting but not expanding.  
-So go back and click on expand. Changes won't be reflected on the editor, so add a new scene and come back to the previous scene, changes will be reflected and the background will look small. 
-  
+So go back and click on expand. Changes won't be reflected on the editor, so add a new scene and come back to the previous scene, changes will be reflected and the background will look small.
+
 Click on the node -> Layout -> Anchors only -> Full rect to measure the bounding rectangle(screen) so it knows where to expand.  
 Now click node -> Layout -> Full Rect. Now the texture will cover the full rectangle and will shrink and expand on changing screen sizes.
 
@@ -82,7 +82,7 @@ $"Label Name".text = "Text for label name"
 # Showing Story to screen
 var prompts = ["Yann", "Minions", "Greatest"]
 var story = "Once upon a time %s watched %s and thought is was the %s movie of the past two decades"
-	
+
 $DisplayText.text = story % prompts
 ```
 
@@ -91,7 +91,8 @@ There's RichLabelText which is like Label but we can make certain part of text u
 - ### LineEdit, VBoxContainer, HBoxContainer, TextureButton
 
 Getting text from Player  
-`LineEdit is for single line input` and `TextEdit for multi line input`  
+`LineEdit is for single line input` and `TextEdit for multi line input`
+
 ```gd
 # shift focus to the LineEdit, so that we can start typing immediately
 func _ready():
@@ -113,12 +114,12 @@ func _on_PlayerText_text_entered(new_text):
 ```
 
 `TextureButton to make a button with textures`  
-Here TextureButton and LineEdit are placed in HBoxContainer. LineEdit  -> Size Flags -> Expand (so it will expand to available space).   
-  
-TextureButton -> Rect -> Set the proper size to match the look of LineEdit. This will set the size of Node not the texture. TextureButton -> Turn expand on (it will vanish) , now go to Rect and give the node a minimum size. Everything will work now.  
-  
+Here TextureButton and LineEdit are placed in HBoxContainer. LineEdit -> Size Flags -> Expand (so it will expand to available space).
+
+TextureButton -> Rect -> Set the proper size to match the look of LineEdit. This will set the size of Node not the texture. TextureButton -> Turn expand on (it will vanish) , now go to Rect and give the node a minimum size. Everything will work now.
+
 HBoxContainer and VBoxContainer has Custom Constants -> Separation property to set the spacing between child nodes.
-  
+
 ```gd
 # Changing screen's text when button is pressed
 func _on_TextureButton_pressed():
@@ -133,11 +134,11 @@ func _on_TextureButton_pressed():
 func add_to_player_words():
 	player_words.append(PlayerText.text)
 	# Add new elements in the array
-	
+
 func is_story_done():
 	return player_words.size() == prompts.size()
 	# .size() returns length of array
-	
+
 func check_player_words_length():
 	if is_story_done():
 		pass
@@ -149,7 +150,7 @@ func check_player_words_length():
 
 ```gd
 # onready means the variable will be assigned after nodes are loaded completely
-onready var SomeNode = $Label 
+onready var SomeNode = $Label
 ```
 
 - ### Node methods
@@ -177,6 +178,7 @@ get_tree().reload_current_scene()
 - ### Dictionary
 
 Key-value pairs.
+
 ```gd
 var template ={
 		"prompts": ["a name", "a noun", "adverb", "adjective"],
@@ -187,7 +189,7 @@ var template ={
 - ### Dynamic and Typed gdscript
 
 In dynamic gdscript, variable can change. variable can be string at one time, array at another and so on.  
-Typed gdscript is opposite of dynamic gdscript.  
+Typed gdscript is opposite of dynamic gdscript.
 
 ```gd
 # : PoolStringArray we are making gdscript typed, so that only String will be stored in the array
@@ -198,24 +200,36 @@ export var story : String # Accepts string only
 ```
 
 We can make a Storybook with 'Node' node which doesn't have much properties to add children nodes 'Node' which will contain each story.  
-However, its not quite efficient if player wants to add a new story and also its a lot of work.
+However, its not quite efficient if player wants to add a new story and also its a lot of work to add each variable values one by one.
 
 - ### JSON
 
+JavaScript Object notation, like a dictionary.
+It can't be opened in godot, so other editors are required.  
+Pros of JSON:  
+	Good code  
+	Easy to mod game
 
+```gd
+# Reading file from json
+func get_from_json(filename):
+	var file = File.new() # new file object
+	file.open(filename, File.READ) # open in read mode
+	var text = file.get_as_text() # get the file text
+	var data = parse_json(text) # change text to json
+	file.close() # close the file
+	return data
+```
 
 - Inspector Tab
 
 We can manage the property of nodes in it
 
 Rect to change position, size, minSize,  
-Custom Font to add a new dynamic font where custom font can be added.  
+Custom Font to add a new dynamic font where custom font can be added.
 
 Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
-
 
 - Node Tab
 
 Signals\Listeners can be added to a certain node. When certain thing happens on one node, it sends signals to the connected node where we can do things related to that specific signal through script attached to receiving node.
-
-
