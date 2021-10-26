@@ -174,6 +174,25 @@ get_tree()
 get_tree().reload_current_scene()
 ```
 
+- Dictionary
+
+Key-value pairs.
+```gdscript
+var template = [
+		{
+			"prompts": ["a name", "a noun", "adverb", "adjective"],
+			"story": "Once upon a time someone called %s ate a %s flavored sandwich which made him feel %s inside. It was a %s day.",
+		},
+		{
+			"prompts": ["a noun", "a name", "adjective", "another name"],
+			"story":"There once was a %s called %s who searched far and wide for mythical %s noun of %s"
+		},
+
+func set_current_story():
+	randomize() # suffle the random number using time so that randi() is different everytime
+	current_story = template[randi() % template.size()]
+```
+
 
 - Inspector Tab
 
