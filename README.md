@@ -2,8 +2,9 @@
 
 Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
 
-- [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)
-- [Hoopy Days - Discovering the Engine](#hoopy-days---discovering-the-engine)
+- [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
+[Play online](https://roopaish.github.io/Godot-Game-Development/exports/Loony%20Lips/exports.html)
+- Hoppy Days - Discovering the Engine
 - Heist Meisters - Top-Down-Stealth
 - CubeDude Kickabout - 3D Local Multiplayer
 - Food Fight - Advanced 3D
@@ -247,7 +248,7 @@ If export template not available already, Click Manage Export Template -> Downlo
   
 Now click close it and click Project -> Export -> Add -> Windows Desktop -> choose location and export
 
-## Hoopy Days - Discovering the Engine
+## Hoppy Days - Discovering the Engine
 
 - ### Theme
 
