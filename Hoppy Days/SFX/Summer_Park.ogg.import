@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Summer_Park.ogg-cf6731f2fc24bf54214f696e58e51c9a.oggstr"
+
+[deps]
+
+source_file="res://SFX/Summer_Park.ogg"
+dest_files=[ "res://.import/Summer_Park.ogg-cf6731f2fc24bf54214f696e58e51c9a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -3,7 +3,7 @@
 Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
 
 - [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)
-- Hoopy Days - Discovering the Engine
+- [Hoopy Days - Discovering the Engine](#hoopy-days---discovering-the-engine)
 - Heist Meisters - Top-Down-Stealth
 - CubeDude Kickabout - 3D Local Multiplayer
 - Food Fight - Advanced 3D
@@ -246,3 +246,19 @@ Project -> Export -> Add -> Windows Desktop
 If export template not available already, Click Manage Export Template -> Download -> Click on the lick provided. Download will start now.  
   
 Now click close it and click Project -> Export -> Add -> Windows Desktop -> choose location and export
+
+## Hoopy Days - Discovering the Engine
+
+- ### Theme
+
+2d Platformer, Get bunny to the destination.
+Essential Experience:  
+	- Cute
+	- Speed and Agility
+	- Dangerous world
+	  
+GamePlay Factors:  
+	- No player attacks
+	- Limited Lives
+	- Fast Movement, high jumps
+	- can get more lives with enough coins
