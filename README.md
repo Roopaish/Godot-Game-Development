@@ -1,13 +1,17 @@
 # Godot Game Development
 
-Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
+Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.  
+  
+Play Online: Games exported to HTML, so can be played online without downloading.  
+Download for windows: Download .exe and .pck file and place them together, anywhere in the disk.
 
 - [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
-[Play online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html)
+[Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html)  [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
 - Hoppy Days - Discovering the Engine
 - Heist Meisters - Top-Down-Stealth
 - CubeDude Kickabout - 3D Local Multiplayer
 - Food Fight - Advanced 3D
+
 
 ## Loony Lips - Discovering GDScript
 
