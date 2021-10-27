@@ -1,9 +1,6 @@
 # Godot Game Development
 
 Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.  
-  
-Play Online: Games exported to HTML, so can be played online without downloading.  
-Download for windows: Download .exe and .pck file and place them together, anywhere in the disk.
 
 - [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
 [Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
