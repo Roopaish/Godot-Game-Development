@@ -1,22 +1,18 @@
 # Godot Game Development
 
-Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.  
+Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
 
-- [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
-[Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
-- Hoppy Days - Discovering the Engine
+- [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)[Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
+- [Hoppy Days - Discovering the Engine](#hoppy-days---discovering-the-engine)
 - Heist Meisters - Top-Down-Stealth
 - CubeDude Kickabout - 3D Local Multiplayer
 - Food Fight - Advanced 3D
-
 
 ## Loony Lips - Discovering GDScript
 
 - ### Theme
 
-A Word game,  
-Ask for a word based on type(nouns, verb, etc)  
-Then plug the words into expandable template for stories
+A Word game,Ask for a word based on type(nouns, verb, etc)Then plug the words into expandable template for stories
 
 - ### Basics and Arrays
 
@@ -60,7 +56,7 @@ Once upon a time Izabella watched Dune and thought is was the Biggest movie of t
 
 We can manage the property of nodes in it
 
-Rect to change position, size, minSize,  
+Rect to change position, size, minSize,
 Custom Font to add a new dynamic font where custom font can be added.
 
 Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
@@ -71,16 +67,16 @@ Signals\Listeners can be added to a certain node. When certain thing happens on 
 
 - ### TextureRect, Label
 
-`TextureRect node for background`  
-Drag background to Texture in Inspector. Press play, when resizing the window, it looks like the background is cutting but not expanding.  
+`TextureRect node for background`
+Drag background to Texture in Inspector. Press play, when resizing the window, it looks like the background is cutting but not expanding.
 So go back and click on expand. Changes won't be reflected on the editor, so add a new scene and come back to the previous scene, changes will be reflected and the background will look small.
 
-Click on the node -> Layout -> Anchors only -> Full rect to measure the bounding rectangle(screen) so it knows where to expand.  
+Click on the node -> Layout -> Anchors only -> Full rect to measure the bounding rectangle(screen) so it knows where to expand.
 Now click node -> Layout -> Full Rect. Now the texture will cover the full rectangle and will shrink and expand on changing screen sizes.
 
 Change default size of the window, Project -> Project Setting -> General -> Window -> Under Size
 
-`label node is used display something on the screen`  
+`label node is used display something on the screen`
 Custom fonts can be added by creating new dynamic font from inspector, margin, auto-wrap etc can be done.
 
 ```gd
@@ -105,7 +101,7 @@ There's RichLabelText which is like Label but we can make certain part of text u
 
 - ### LineEdit, VBoxContainer, HBoxContainer, TextureButton
 
-Getting text from Player  
+Getting text from Player
 `LineEdit is for single line input` and `TextEdit for multi line input`
 
 ```gd
@@ -114,7 +110,7 @@ func _ready():
 	LineEdit.grab_focus()
 ```
 
-`VBoxContainer to align nodes in row` and `HBoxContainer to align nodes in column`  
+`VBoxContainer to align nodes in row` and `HBoxContainer to align nodes in column`
 We can change alignment, margins etc
 
 Select LineEdit, In node tab, click text_entered and connect to first node where script is attached
@@ -128,7 +124,7 @@ func _on_PlayerText_text_entered(new_text):
 	LineEdit.clear() # to clear the entered text from LineEdit
 ```
 
-`TextureButton to make a button with textures`  
+`TextureButton to make a button with textures`
 Here TextureButton and LineEdit are placed in HBoxContainer. LineEdit -> Size Flags -> Expand (so it will expand to available space).
 
 TextureButton -> Rect -> Set the proper size to match the look of LineEdit. This will set the size of Node not the texture. TextureButton -> Turn expand on (it will vanish) , now go to Rect and give the node a minimum size. Everything will work now.
@@ -203,7 +199,7 @@ var template ={
 
 - ### Dynamic and Typed gdscript
 
-In dynamic gdscript, variable can change. variable can be string at one time, array at another and so on.  
+In dynamic gdscript, variable can change. variable can be string at one time, array at another and so on.
 Typed gdscript is opposite of dynamic gdscript.
 
 ```gd
@@ -220,16 +216,15 @@ func set_current_story():
 	current_story.story = $StoryBook.get_child(selected_story).story
 ```
 
-We can make a Storybook with 'Node' node which doesn't have much properties to add children nodes 'Node' which will contain each story.  
-However, its not quite efficient if player wants to add a new story and also its a lot of work to add each variable values one by one.
+We can make a Storybook with 'Node' node which doesn't have much properties to add children nodes 'Node' which will contain each story.However, its not quite efficient if player wants to add a new story and also its a lot of work to add each variable values one by one.
 
 - ### JSON
 
 JavaScript Object notation, like a dictionary.
-It can't be opened in godot, so other editors are required.  
-Pros of JSON:  
- Good code  
- Easy to mod game
+It can't be opened in godot, so other editors are required.
+Pros of JSON:
+Good code
+Easy to mod game
 
 ```gd
 # Reading file from json
@@ -244,9 +239,9 @@ func get_from_json(filename):
 
 - ### Exporting the game
 
-Project -> Export -> Add -> Windows Desktop  
-If export template not available already, Click Manage Export Template -> Download -> Click on the lick provided. Download will start now.  
-  
+Project -> Export -> Add -> Windows Desktop
+If export template not available already, Click Manage Export Template -> Download -> Click on the lick provided. Download will start now.
+
 Now click close it and click Project -> Export -> Add -> Windows Desktop -> choose location and export
 
 ## Hoppy Days - Discovering the Engine
@@ -254,13 +249,55 @@ Now click close it and click Project -> Export -> Add -> Windows Desktop -> choo
 - ### Theme
 
 2d Platformer, Get bunny to the destination.
-Essential Experience:  
+Essential Experience:
+
 	- Cute
 	- Speed and Agility
 	- Dangerous world
-	  
-GamePlay Factors:  
+
+	GamePlay Factors:
+
 	- No player attacks
 	- Limited Lives
 	- Fast Movement, high jumps
 	- can get more lives with enough coins
+
+- ### PhysicsBody2D
+
+Object that interacts with physics engine.  
+Types:  
+`StaticBody2D` -> No movement, simple velocity applied. Example: walls, floors, platforms etc.  
+`RigidBody2D` -> Controlled by 2D engine, built-in behaviors like gravity, friction. Example: football.
+Not Controlled directly, forces are applied to it.  
+`KinematicBody2D` -> Controlled by player, not affected by 2D physics engine, can be moved directly with control. Example: Player.
+
+    - KinematicBody2D
+    Needs a CollisionShape2D, so it knows the outline of the shape. We can add a Sprite to it, so that we can add a CollisionShape2D around it, to make it a KineticBody.
+
+    > Tip: Select a parent node, select 'make sure the object's children are not selectable' located next to lock icon. So now we can move the whole KineticBody2D.
+
+Map keys from Project -> Project Settings -> Input Map. We can add a action and then add keys or any input to trigger that action. Suppose, we add 'left' action and mapped it to 'A' key. Now hitting 'A' will trigger 'left' action which can be used in script as `if Input.is_action_pressed("left"):`.
+
+```gd
+# Players Movement
+extends KinematicBody2D
+
+var motion = Vector2() # 2D array with x and y values, used for positions
+
+const SPEED = 500
+
+# _physics_process is a fxn to run code for every frame, and also to do physics stuffs
+# delta is the time in seconds between frames
+# multiplying by delta means that the values will be same even if the frame rate changes
+func _physics_process(delta):
+	if Input.is_action_pressed("left") and not Input.is_action_pressed("right"):
+		motion.x = -SPEED # -ve x-axis
+	elif Input.is_action_pressed("right") and not Input.is_action_pressed("left"):
+		motion.x = SPEED # +ve x-axis
+	else:
+		motion.x = 0 # stop
+	move_and_slide(motion) # move and slide the Player by given position
+```
+
+move_and_collide() -> when you hit something, stop | can get collision info whenever it hits | doesn't automatically use delta  
+move_and_slide() -> when you hit something, try and move it | can detect floors, ceilings and walls | automatically use delta
