@@ -251,16 +251,16 @@ Now click close it and click Project -> Export -> Add -> Windows Desktop -> choo
 2d Platformer, Get bunny to the destination.
 Essential Experience:
 
-	- Cute
-	- Speed and Agility
-	- Dangerous world
+1. Cute
+2. Speed and Agility
+3. Dangerous world
 
-	GamePlay Factors:
+GamePlay Factors:
 
-	- No player attacks
-	- Limited Lives
-	- Fast Movement, high jumps
-	- can get more lives with enough coins
+1. No player attacks
+2. Limited Lives
+3. Fast Movement, high jumps
+4. can get more lives with enough coins
 
 - ### PhysicsBody2D
 
@@ -271,12 +271,16 @@ Types:
 Not Controlled directly, forces are applied to it.  
 `KinematicBody2D` -> Controlled by player, not affected by 2D physics engine, can be moved directly with control. Example: Player.
 
-    - KinematicBody2D
-    Needs a CollisionShape2D, so it knows the outline of the shape. We can add a Sprite to it, so that we can add a CollisionShape2D around it, to make it a KineticBody.
+> KinematicBody2D
 
-    > Tip: Select a parent node, select 'make sure the object's children are not selectable' located next to lock icon. So now we can move the whole KineticBody2D.
+Needs a CollisionShape2D, so it knows the outline of the shape. We can add a Sprite to it, so that we can add a CollisionShape2D around it, to make it a KineticBody.
 
-Map keys from Project -> Project Settings -> Input Map. We can add a action and then add keys or any input to trigger that action. Suppose, we add 'left' action and mapped it to 'A' key. Now hitting 'A' will trigger 'left' action which can be used in script as `if Input.is_action_pressed("left"):`.
+>>Tip: Select a parent node, select 'make sure the object's children are not selectable' located next to lock icon. So now we can move the whole KineticBody2D.
+
+Map keys from Project -> Project Settings -> Input Map.  
+We can add a action and then add keys or any input to trigger that action.   
+Suppose, we add 'left' action and mapped it to 'A' key.   
+Now hitting 'A' will trigger 'left' action which can be used in script as `if Input.is_action_pressed("left"):`
 
 ```gd
 # Players Movement
@@ -299,5 +303,5 @@ func _physics_process(delta):
 	move_and_slide(motion) # move and slide the Player by given position
 ```
 
-move_and_collide() -> when you hit something, stop | can get collision info whenever it hits | doesn't automatically use delta  
-move_and_slide() -> when you hit something, try and move it | can detect floors, ceilings and walls | automatically use delta
+`move_and_collide()` -> when you hit something, stop | can get collision info whenever it hits | doesn't automatically use delta  
+`move_and_slide()` -> when you hit something, try and move it | can detect floors, ceilings and walls | automatically use delta
