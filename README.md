@@ -271,11 +271,11 @@ Types:
 Not Controlled directly, forces are applied to it.  
 `KinematicBody2D` -> Controlled by player, not affected by 2D physics engine, can be moved directly with control. Example: Player.
 
-> KinematicBody2D
+1. KinematicBody2D
 
 Needs a CollisionShape2D, so it knows the outline of the shape. We can add a Sprite to it, so that we can add a CollisionShape2D around it, to make it a KineticBody.
 
->>Tip: Select a parent node, select 'make sure the object's children are not selectable' located next to lock icon. So now we can move the whole KineticBody2D.
+>Tip: Select a parent node, select 'make sure the object's children are not selectable' located next to lock icon. So now we can move the whole KineticBody2D.
 
 Map keys from Project -> Project Settings -> Input Map.  
 We can add a action and then add keys or any input to trigger that action.   
