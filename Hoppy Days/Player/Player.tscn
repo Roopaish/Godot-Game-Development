@@ -9,6 +9,7 @@ height = 82.1067
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 497.824, 114.979 )
+collision_mask = 2
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
@@ -18,5 +19,14 @@ __meta__ = {
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" parent="." instance=ExtResource( 1 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 2, 2 )
+limit_left = 0
+limit_right = 1000
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
 
 [connection signal="animate" from="." to="AnimatedSprite" method="_on_Player_animate"]

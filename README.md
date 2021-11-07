@@ -430,3 +430,26 @@ Now, PlayerAnimation and Player are encapsulated.
 
 > TileMaps
 
+Create a new scene and add a node2d to group all sprites. Drag and drop sprites needed.
+In each sprite add a StaticBody2D with CollisionPolygon2D(to get the exact size of tiles).
+
+Click on Scene -> Covert to -> Tileset -> save it as .tres file  
+Also save the scene.
+
+Now we can use these tileset on any scenes, just add a TileMaps node, and load this file.
+
+> Collision
+
+The layers are like enum, we can name them thorough Project -> Project Settings -> General -> 2D physics
+
+Collision Layers: which layers we exist on
+Collision Masks: which layers we can interact with
+
+> Camera2D
+
+Properties:  
+Current -> If enabled, camera will follow the moving object  
+Drag Margin H Enabled -> If enabled, the camera will follow after a while when moving left and right  
+Drag Margin V Enabled -> same but for up and down  
+Smoothing -> Smooth transition of camera  
+Limit -> Set Limit to which the camera/player can move
