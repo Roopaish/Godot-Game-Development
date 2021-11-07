@@ -453,3 +453,26 @@ Drag Margin H Enabled -> If enabled, the camera will follow after a while when m
 Drag Margin V Enabled -> same but for up and down  
 Smoothing -> Smooth transition of camera  
 Limit -> Set Limit to which the camera/player can move
+
+> is_on_ceiling()
+
+This is updated every time move_and_slide() is called. Just like is_on_floor(), we are telling that if player touches the ceiling, set the y position to 1 i.e. 1px below ceiling.
+
+```gd
+if is_on_ceiling():
+	motion.y = 1 # To make Player bouncing, if the ceiling is hit rather than hovering
+	# It takes the Player and move it down to 1 px, if ceiling is hit
+```
+
+> Parallax Backgrounds
+
+Closer layer is faster, and the faster the layer moves, the faster the player will feel like they're going.
+
+So we create it like this, Camera2D > ParallaxBackground > ParallaxLayer > TextureRect(contains texture for background). ParallaxBackground contains all ParallaxLayers.
+
+To repeat the layer:  
+Find the size of the texture used, then under ParallaxLayer -> motion -> mirroring -> paste the size of texture. Now the texture will be repeated. Now select ParallaxBackground and turn on `ignore camera zoom`. This will make sure that every layer is completely covering the screen.
+
+We can also offset the ParallaxLayers and turn of mirroring by using value 0.  
+Scale is used for changing speed of the layers.  
+We can also manage these whole things under ParallaxBackground which will affect all.

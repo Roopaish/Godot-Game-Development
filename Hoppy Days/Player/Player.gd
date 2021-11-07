@@ -3,7 +3,7 @@ extends KinematicBody2D
 var motion = Vector2() # Defining a 2D vector, to access position of sprite
 
 const SPEED = 1500
-const GRAVITY = 300
+const GRAVITY = 150
 const UP = Vector2(0, -1) # To determine what is a floor, Vector2(0,0) is default which tells everything is a wall
 const JUMP_SPEED = 3500
 
@@ -28,6 +28,8 @@ func move():
 func apply_gravity():
 	if is_on_floor():
 		motion.y = 0
+	elif is_on_ceiling():
+		motion.y = 1 # so bunny doesn't hover on the ceiling, bounce of the ceiling if hit
 	else:
 		motion.y += GRAVITY
 		
