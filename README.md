@@ -379,3 +379,54 @@ func _physics_process(delta):
 	...
 	animate()
 ```
+
+> Tips for Elegant Code
+
+    - easy to read by human
+    - do not have multiple scripts working on the same thing
+    - do not have one script doing multiple things
+    - Encapsulate: If a node or function is missing, the game should work just fine
+
+Even if we remove a piece of code, or a node, the game should work fine without causing any errors. This can be achieved by encapsulating each node with its own script.  
+It means if we add some functionalities to a particular node, its better to make its own scene with a separate script attached to it where functionalities are defined.
+
+> Encapsulating
+
+PlayerAnimation(AnimatedSprite) is child of Player. Right click on it -> Save Branch as Scene.
+Now, PlayerAnimation becomes a separate scene. Attach a script to it eg:PlayerAnimation.gd.
+
+```gd
+# Player.gd
+signal animate
+
+func _physics_process(delta):
+	...
+	animate()
+
+func animate():
+	# emitting signal called animate (which will be available in node tab when player is selected)
+	emit_signal("animate", motion) # emitting signal animate and passing motion(position of player)
+```
+
+Connect animate() to PlayerAnimation.gd
+
+```gd
+# PlayerAnimation.gd
+# Using that motion to play different animation
+func _on_Player_animate(motion):
+	if motion.y < 0:
+		play('jump')
+	elif motion.x > 0:
+		play('walk')
+		flip_h = false
+	elif motion.x < 0:
+		play('walk')
+		flip_h = true # flips the sprite horizontally
+	else:
+		play('idle')
+```
+
+Now, PlayerAnimation and Player are encapsulated.
+
+> TileMaps
+

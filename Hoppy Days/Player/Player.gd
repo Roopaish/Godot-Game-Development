@@ -7,6 +7,8 @@ const GRAVITY = 300
 const UP = Vector2(0, -1) # To determine what is a floor, Vector2(0,0) is default which tells everything is a wall
 const JUMP_SPEED = 3000
 
+signal animate
+
 func _physics_process(delta):
 	apply_gravity()
 	jump()
@@ -27,7 +29,7 @@ func apply_gravity():
 	if is_on_floor():
 		motion.y = 0
 	else:
-		motion.y += GRAVITY	
+		motion.y += GRAVITY
 		
 func jump():
 	if Input.is_action_pressed("jump") and is_on_floor():
@@ -35,17 +37,7 @@ func jump():
 
 # Playing animation based on movement
 func animate():
-	if motion.y < 0:
-		$AnimatedSprite.play('jump')
-	elif motion.x > 0:
-		$AnimatedSprite.play('walk')
-		$AnimatedSprite.flip_h = false
-	elif motion.x < 0:
-		$AnimatedSprite.play('walk')		
-		$AnimatedSprite.flip_h = true # flips the sprite horizontally 
-	else:
-		$AnimatedSprite.play('idle')
-		
+	emit_signal("animate", motion)
 	
 	
 	

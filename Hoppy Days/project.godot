@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="Hoppy Days"
-run/main_scene="res://Player/Player.tscn"
+run/main_scene="res://Levels/Level1.tscn"
 config/icon="res://icon.png"
 
 [display]
