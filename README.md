@@ -3,7 +3,7 @@
 Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
 
 - [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
-[Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
+  [Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
 - [Hoppy Days - Discovering the Engine](#hoppy-days---discovering-the-engine)
 - Heist Meisters - Top-Down-Stealth
 - CubeDude Kickabout - 3D Local Multiplayer
@@ -317,6 +317,10 @@ func _physics_process(delta):
 
 - In godot, the center of axis is at top-left corner. So downwards is +ve y, upwards is -ve y, left is +ve x and right is -ve x.
 
+> Adding a scene as an instance in another scene
+
+Create a new scene, Press `ctrl+shift+a` to choose any saved scene as an instance. So, now instantiated scene's properties can be used. Also everything is reflected to the instantiated scene if any changes is made in the original scene.
+
 > Make bunny jump and apply gravity
 
 ```gd
@@ -340,10 +344,38 @@ func apply_gravity():
 	if is_on_floor():
 		motion.y = 0
 	else:
-		motion.y += GRAVITY	
-		
+		motion.y += GRAVITY
+
 func jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 		# is_action_just_pressed will trigger only once, even if we hold jump key for too long
+		# is_action_pressed, will work fine here, cause we are checking if it is in floor, before applying jump
 		motion.y -= JUMP_SPEED
+```
+
+> Animated Sprite
+
+Add AnimatedSprite -> In inspector Tab -> Create New SpriteFrames under Frames property -> Click on it -> Animation Panel will appear at bottom
+
+Under Animations: There will be a default animation, change the name as you will.  
+You can add new animations and name them as you will. By selecting the animation, drag animation frames(sprites) to Animation Frames:  
+In Inspector tab, turn on Playing, now the animation will happen.
+
+```gd
+# We can reference those animations we created with their names
+func animate():
+	if motion.y < 0:
+		$AnimatedSprite.play('jump') # play jump when moving up
+	elif motion.x > 0:
+		$AnimatedSprite.play('walk')
+		$AnimatedSprite.flip_h = false
+	elif motion.x < 0:
+		$AnimatedSprite.play('walk')
+		$AnimatedSprite.flip_h = true # flip horizontally when moving to left
+	else:
+		$AnimatedSprite.play('idle')
+
+func _physics_process(delta):
+	...
+	animate()
 ```

@@ -11,6 +11,7 @@ func _physics_process(delta):
 	apply_gravity()
 	jump()
 	move()
+	animate()
 	move_and_slide(motion, UP) # Second argument is used to trigger is_on_floor()
 
 func move():
@@ -29,5 +30,25 @@ func apply_gravity():
 		motion.y += GRAVITY	
 		
 func jump():
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_pressed("jump") and is_on_floor():
 		motion.y -= JUMP_SPEED
+
+# Playing animation based on movement
+func animate():
+	if motion.y < 0:
+		$AnimatedSprite.play('jump')
+	elif motion.x > 0:
+		$AnimatedSprite.play('walk')
+		$AnimatedSprite.flip_h = false
+	elif motion.x < 0:
+		$AnimatedSprite.play('walk')		
+		$AnimatedSprite.flip_h = true # flips the sprite horizontally 
+	else:
+		$AnimatedSprite.play('idle')
+		
+	
+	
+	
+	
+	
+	
