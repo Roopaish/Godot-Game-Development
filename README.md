@@ -61,6 +61,8 @@ Custom Font to add a new dynamic font where custom font can be added.
 
 Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
 
+Transform for position, rotation and scale of the node.
+
 - ### Node Tab
 
 Signals\Listeners can be added to a certain node. When certain thing happens on one node, it sends signals to the connected node where we can do things related to that specific signal through script attached to receiving node.
@@ -275,11 +277,11 @@ Not Controlled directly, forces are applied to it.
 
 Needs a CollisionShape2D, so it knows the outline of the shape. We can add a Sprite to it, so that we can add a CollisionShape2D around it, to make it a KineticBody.
 
->Tip: Select a parent node, select 'make sure the object's children are not selectable' located next to lock icon. So now we can move the whole KineticBody2D.
+> Tip: Select a parent node, select 'make sure the object's children are not selectable' located next to lock icon. So now we can move the whole KineticBody2D.
 
 Map keys from Project -> Project Settings -> Input Map.  
-We can add a action and then add keys or any input to trigger that action.   
-Suppose, we add 'left' action and mapped it to 'A' key.   
+We can add a action and then add keys or any input to trigger that action.  
+Suppose, we add 'left' action and mapped it to 'A' key.  
 Now hitting 'A' will trigger 'left' action which can be used in script as `if Input.is_action_pressed("left"):`
 
 ```gd
@@ -305,3 +307,42 @@ func _physics_process(delta):
 
 `move_and_collide()` -> when you hit something, stop | can get collision info whenever it hits | doesn't automatically use delta  
 `move_and_slide()` -> when you hit something, try and move it | can detect floors, ceilings and walls | automatically use delta
+
+> Making CollisionShape2D cover up whole sprite
+
+- CollisionShape2D => If we have a sprite of 32x32 size and we scaled it by 10x10, then the total size of sprite will be 320x320 in pixel. Now For CollisionShape2D, we should have scale or extents of 320x320, so to cover up the sprite.
+
+> Axis in Godot
+
+- In godot, the center of axis is at top-left corner. So downwards is +ve y, upwards is -ve y, left is +ve x and right is -ve x.
+
+> Make bunny jump and apply gravity
+
+```gd
+extends KinematicBody2D
+
+var motion = Vector2() # Defining a 2D vector, to access position of sprite
+
+const SPEED = 1000
+const GRAVITY = 300
+const UP = Vector2(0, -1) # To determine what is a floor, Vector2(0,0) is default which tells everything is a wall
+const JUMP_SPEED = 3000
+
+func _physics_process(delta):
+	apply_gravity()
+	jump()
+	move()
+	move_and_slide(motion, UP) # Second argument is used to trigger is_on_floor()
+
+# Keep on increasing down position(gravity or down speed), only if the sprite is not on the floor
+func apply_gravity():
+	if is_on_floor():
+		motion.y = 0
+	else:
+		motion.y += GRAVITY	
+		
+func jump():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		# is_action_just_pressed will trigger only once, even if we hold jump key for too long
+		motion.y -= JUMP_SPEED
+```
