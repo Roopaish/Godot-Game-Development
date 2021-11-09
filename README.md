@@ -55,7 +55,7 @@ Once upon a time Izabella watched Dune and thought is was the Biggest movie of t
 
 - ### Inspector Tab
 
-We can manage the property of nodes in it
+We can manage the property of nodes in it. All these property can be accessed and changed with script.
 
 Rect to change position, size, minSize.
 
@@ -66,6 +66,8 @@ Custom Color to give font color and so on.
 Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
 
 Transform for position, rotation and scale of the node.
+
+Visibility -> Modulate to change color of node.
 
 - ### Node Tab
 
@@ -489,3 +491,68 @@ To center any child node inside it.
 ```gd
 get_tree().change_scene("res://Levels/GameOver.tscn")
 ```
+
+> Area2D
+
+Part of game world that can detect when things are entering and leaving.
+It always has a CollisionShape.  
+Connect signal body_entered to the script. Now the generated function will execute whenever any particular node touches Area2D.  
+We can setup collision layers and masks to detect any interaction.
+
+```gd
+# Detect collision to Area2D, if collision layers and masks are setup
+extends Area2D
+
+func _on_Area2D_body_entered(body):
+	print('Player hit the spikes')
+```
+
+```gd
+# Detect collision to Area2D, if collision layers and masks are not setup
+extends Area2D
+
+func _on_Area2D_body_entered(body):
+	if body.name == "Player": # or if body is Kinematic2D
+		print('Player touched Area2D')
+```
+
+```gd
+# Execute method of the body that touched Area2D
+func _on_Area2D_body_entered(body):
+	if body.has_method("hurt"): # To check if the body already has a method, necessary only if collision layers are not setup
+		body.hurt()
+```
+
+> yield
+
+```gd
+yield(get_tree(),"idle_frame") # wait for a frame
+```
+
+> AudioStreamPlayer
+
+AudioStreamPlayer plays throughout the game.  
+AudioStreamPlayer2D plays as you get closer.  
+AudioStreamPlayer3D plays as you get closer but in 3D.
+
+```gd
+# Load audio through script and play
+$AudioStreamPlayer.stream = load("res://SFX/pain.ogg")
+$AudioStreamPlayer.play()
+
+# Same node can be used to play different sounds
+$AudioStreamPlayer.stream = load("res://SFX/jump.ogg")
+$AudioStreamPlayer.play()
+```
+
+> AnimationPlayer
+
+AnimationPlayer helps in creating animation that can be customized with keyframes and can be executed through script. We can create an animation and name it. Then we can add tracks which deals with animating certain aspects of a particular node. Property track is most common. We need to select which node we want to animate then which property of it. Then we can insert keys by right clicking on the track.
+
+```gd
+# Controlling Animation of AnimatedSprite
+# In the inspector tab we can set which animation from AnimatedSprite to animate or make it a key
+# Play animation named boost
+$AnimationPlayer.play("boost")
+```
+

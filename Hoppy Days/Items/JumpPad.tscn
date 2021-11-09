@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GFX/Items/spring.png" type="Texture" id=1]
+[ext_resource path="res://GFX/Items/spring_in.png" type="Texture" id=2]
+[ext_resource path="res://Items/JumpPad.gd" type="Script" id=3]
+[ext_resource path="res://GFX/Items/spring_out.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.5
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "boost",
+"speed": 2.5
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 71.6463, 37.7649 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "boost"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimatedSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 10.1965, 3.36358 ),
+"update": 1,
+"values": [ "boost", "default" ]
+}
+
+[node name="JumpPad" type="Area2D"]
+collision_layer = 8
+script = ExtResource( 3 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "boost"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0.794601, 0.529732 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/boost = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_JumpPad_body_entered"]

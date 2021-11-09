@@ -52,14 +52,15 @@ text = "Game Over"
 margin_top = 168.0
 margin_right = 724.0
 margin_bottom = 239.0
+mouse_default_cursor_shape = 2
 texture_normal = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer/RestartButton"]
-margin_left = 56.0
-margin_right = 396.0
+margin_left = 82.1626
+margin_right = 422.163
 margin_bottom = 82.0
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )

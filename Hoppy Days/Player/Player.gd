@@ -5,8 +5,11 @@ var motion = Vector2() # Defining a 2D vector, to access position of sprite
 const SPEED = 1500
 const GRAVITY = 150
 const UP = Vector2(0, -1) # To determine what is a floor, Vector2(0,0) is default which tells everything is a wall
-const JUMP_SPEED = 3500
+const JUMP_SPEED = 2500
 const WORLD_LIMIT = 4000
+const BOOST_MULTIPLIER = 1.5
+
+var lives = 3
 
 signal animate
 
@@ -39,6 +42,7 @@ func apply_gravity():
 func jump():
 	if Input.is_action_pressed("jump") and is_on_floor():
 		motion.y -= JUMP_SPEED
+		$JumpSFX.play()
 
 # Playing animation based on movement
 func animate():
@@ -47,7 +51,23 @@ func animate():
 func end_game():
 	get_tree().change_scene("res://Levels/GameOver.tscn")
 	
+func hurt():
+	# move_and_slide runs at 60fps, so gravity will act on it immediately
+	# Bypassing gravity
+	position.y -= 1 # move up by 1 px
+	yield(get_tree(),"idle_frame") # wait for a frame, then jump (to bypass gravity)
+	motion.y -= JUMP_SPEED
+	lives -= 1
+	
+	$PainSFX.play()
+	if lives == 0:
+		end_game()
+	
+func boost():
+	position.y -= 1
+	yield(get_tree(),"idle_frame")
+	motion.y -= JUMP_SPEED * BOOST_MULTIPLIER
 
-	
-	
+
+
 	
