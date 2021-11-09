@@ -547,7 +547,8 @@ $AudioStreamPlayer.play()
 
 > AnimationPlayer
 
-AnimationPlayer helps in creating animation that can be customized with keyframes and can be executed through script. We can create an animation and name it. Then we can add tracks which deals with animating certain aspects of a particular node. Property track is most common. We need to select which node we want to animate then which property of it. Then we can insert keys by right clicking on the track.
+AnimationPlayer helps in creating animation that can be customized with keyframes and can be executed through script. We can create an animation and name it. Then we can add tracks which deals with animating certain aspects of a particular node. Property track is most common. We need to select which node we want to animate then which property of it. Then we can insert keys by right clicking on the track.  
+Any property in inspector can be animated.
 
 ```gd
 # Controlling Animation of AnimatedSprite
@@ -556,3 +557,28 @@ AnimationPlayer helps in creating animation that can be customized with keyframe
 $AnimationPlayer.play("boost")
 ```
 
+We can also add Method track which helps in calling certain methods defined in script at certain point.
+
+> Group vs Signal
+
+Signal is predetermined message from a known sender to a known recipient. Group is a broadcast to anyone who might be interested in listening to it.  
+Signal is like one-to-one communication. Group is like one-to-many communication.
+
+```gd
+func _ready():
+	add_to_group("Gamestate") # It adds any node that has this script attached will be added to group name Gamestate
+```
+
+This can also be done through the UI. Select the node, go to node tab then under groups name and add a group.
+
+```gd
+get_tree().call_group("Gamestate", "hurt") # Executes hurt() method in any node of group Gamestate, ignores if not found.
+
+# To pass arguments with the method, lives is being passed as argument
+get_tree().call_group("Gamestate", "hurt", lives)
+```
+
+> CanvasLayer | GUI
+
+Elements stay at fix one place.
+Can be used to put some node together that display life or points while game is running.

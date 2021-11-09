@@ -9,8 +9,6 @@ const JUMP_SPEED = 2500
 const WORLD_LIMIT = 4000
 const BOOST_MULTIPLIER = 1.5
 
-var lives = 3
-
 signal animate
 
 func _physics_process(delta):
@@ -31,7 +29,7 @@ func move():
 # Keep on increasing down position(gravity or down speed), only if the sprite is not on the floor
 func apply_gravity():
 	if position.y > WORLD_LIMIT:
-		end_game()
+		get_tree().call_group("Gamestate", "end_game")
 	if is_on_floor():
 		motion.y = 0
 	elif is_on_ceiling():
@@ -48,20 +46,17 @@ func jump():
 func animate():
 	emit_signal("animate", motion)
 	
-func end_game():
-	get_tree().change_scene("res://Levels/GameOver.tscn")
-	
+
 func hurt():
 	# move_and_slide runs at 60fps, so gravity will act on it immediately
 	# Bypassing gravity
 	position.y -= 1 # move up by 1 px
 	yield(get_tree(),"idle_frame") # wait for a frame, then jump (to bypass gravity)
 	motion.y -= JUMP_SPEED
-	lives -= 1
 	
 	$PainSFX.play()
-	if lives == 0:
-		end_game()
+#	if lives == 0:
+#		end_game()
 	
 func boost():
 	position.y -= 1
