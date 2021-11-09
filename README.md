@@ -67,7 +67,7 @@ Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and
 
 Transform for position, rotation and scale of the node.
 
-Visibility -> Modulate to change color of node.
+Visibility -> Modulate to change color of node and also children. Self Modulate to change color of own.
 
 - ### Node Tab
 
@@ -582,3 +582,52 @@ get_tree().call_group("Gamestate", "hurt", lives)
 
 Elements stay at fix one place.
 Can be used to put some node together that display life or points while game is running.
+
+> RayCast2D
+
+Its like a transparent beam of light, which when falls on certain node can throw signals like body_entered.  
+It won't work if enabled is off. We can change cast to length. Also we have to define a collision mask, to define what it will interact with.
+
+> add_child | set_as_toplevel
+
+```gd
+# Add child node through script
+$Node.add_child(load("res://NPCs/Lightning.tscn").instance())
+```
+
+```gd
+func _ready():
+	set_as_toplevel(true) # won't inherit transform property of parent
+```
+
+> Timer
+
+`$Timer.start()` to start the timer.
+
+> VisibilityNotifier2D
+
+It can be used to check the visibility of the whole scene.
+
+```gd
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free() # Removing this scene when it doesn't appear on the screen
+```
+
+> position
+
+```gd
+func _process(delta):
+	position.y += SPEED  * delta # increases the down position
+	# We didn't use delta in move_and_collide cause it automatically uses delta
+```
+
+> Getting overlapping bodies
+
+```gd
+func _process(delta):
+	var collider = $Area2D.get_overlapping_bodies() # get a list of all bodies that are touching Area2D
+		for object in collider:
+			if object.name == "Player":
+				get_tree().call_group("Gamestate", "hurt")
+			queue_free()
+```
