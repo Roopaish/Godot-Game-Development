@@ -57,8 +57,11 @@ Once upon a time Izabella watched Dune and thought is was the Biggest movie of t
 
 We can manage the property of nodes in it
 
-Rect to change position, size, minSize,
+Rect to change position, size, minSize.
+
 Custom Font to add a new dynamic font where custom font can be added.
+Use settings to change font size, use filter to make edges blurry instead of pixilated.
+Custom Color to give font color and so on.
 
 Size Flags to expand, fill, shrink,cent, shrink,e nd used with HBoxContainer and VboxContainer children
 
@@ -476,3 +479,13 @@ Find the size of the texture used, then under ParallaxLayer -> motion -> mirrori
 We can also offset the ParallaxLayers and turn of mirroring by using value 0.  
 Scale is used for changing speed of the layers.  
 We can also manage these whole things under ParallaxBackground which will affect all.
+
+> CenterContainer
+
+To center any child node inside it.
+
+> change_scene
+
+```gd
+get_tree().change_scene("res://Levels/GameOver.tscn")
+```

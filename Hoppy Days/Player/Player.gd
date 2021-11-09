@@ -6,6 +6,7 @@ const SPEED = 1500
 const GRAVITY = 150
 const UP = Vector2(0, -1) # To determine what is a floor, Vector2(0,0) is default which tells everything is a wall
 const JUMP_SPEED = 3500
+const WORLD_LIMIT = 4000
 
 signal animate
 
@@ -26,6 +27,8 @@ func move():
 
 # Keep on increasing down position(gravity or down speed), only if the sprite is not on the floor
 func apply_gravity():
+	if position.y > WORLD_LIMIT:
+		end_game()
 	if is_on_floor():
 		motion.y = 0
 	elif is_on_ceiling():
@@ -41,8 +44,10 @@ func jump():
 func animate():
 	emit_signal("animate", motion)
 	
+func end_game():
+	get_tree().change_scene("res://Levels/GameOver.tscn")
 	
-	
+
 	
 	
 	
