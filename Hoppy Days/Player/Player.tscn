@@ -10,8 +10,8 @@
 [ext_resource path="res://SFX/pain.ogg" type="AudioStream" id=8]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 59.0829
-height = 82.1067
+radius = 59.2849
+height = 70.4349
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 497.824, 114.979 )

@@ -55,8 +55,10 @@ align = 2
 
 [node name="CoinIcon" type="TextureRect" parent="Control/TextureRect/HBoxContainer"]
 margin_left = 76.0
+margin_top = 10.0
 margin_right = 136.0
 margin_bottom = 71.0
+rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 3 )
 
 [node name="LifeCount" type="Label" parent="Control/TextureRect/HBoxContainer"]
@@ -72,4 +74,5 @@ align = 2
 margin_left = 193.0
 margin_right = 245.0
 margin_bottom = 71.0
+rect_scale = Vector2( 0.8, 0.8 )
 texture = ExtResource( 4 )

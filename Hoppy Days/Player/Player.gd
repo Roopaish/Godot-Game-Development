@@ -30,7 +30,7 @@ func move():
 func apply_gravity():
 	if position.y > WORLD_LIMIT:
 		get_tree().call_group("Gamestate", "end_game")
-	if is_on_floor():
+	if is_on_floor() and motion.y > 0:
 		motion.y = 0
 	elif is_on_ceiling():
 		motion.y = 1 # so bunny doesn't hover on the ceiling, bounce of the ceiling if hit
@@ -52,16 +52,15 @@ func hurt():
 	# Bypassing gravity
 	position.y -= 1 # move up by 1 px
 	yield(get_tree(),"idle_frame") # wait for a frame, then jump (to bypass gravity)
-	motion.y -= JUMP_SPEED
+	motion.y = -JUMP_SPEED
 	
 	$PainSFX.play()
-#	if lives == 0:
-#		end_game()
+
 	
 func boost():
 	position.y -= 1
 	yield(get_tree(),"idle_frame")
-	motion.y -= JUMP_SPEED * BOOST_MULTIPLIER
+	motion.y = -JUMP_SPEED * BOOST_MULTIPLIER
 
 
 
