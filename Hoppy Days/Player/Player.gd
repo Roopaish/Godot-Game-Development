@@ -2,10 +2,10 @@ extends KinematicBody2D
 
 var motion = Vector2() # Defining a 2D vector, to access position of sprite
 
-const SPEED = 1500
+const SPEED = 1000
 const GRAVITY = 150
 const UP = Vector2(0, -1) # To determine what is a floor, Vector2(0,0) is default which tells everything is a wall
-const JUMP_SPEED = 2500
+const JUMP_SPEED = 3000
 const WORLD_LIMIT = 4000
 const BOOST_MULTIPLIER = 1.5
 

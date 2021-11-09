@@ -631,3 +631,8 @@ func _process(delta):
 				get_tree().call_group("Gamestate", "hurt")
 			queue_free()
 ```
+
+> Particles2D
+
+To add particles in the system. Click on Process material and choose a new ParticlesMaterial and and play around with the values.
+
