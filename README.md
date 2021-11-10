@@ -712,5 +712,13 @@ Now Select TileMap node and start painting on the Levels. All the walls will now
 Collision:  
 Now to add collision for walls made by this process. Click on Collision and start selecting all walls used in the bitmask using square or poligon icons.
 
+Occlusion:  
+It defines what part should not let the light pass through it.Making it work is same as making Collision.
+
 > Light2D
 
+It needs a lightmap texture, a picture with a beam of light. Light is blocked by occlusion(just like layers in collision). Change the offset of the texture to change the point. To apply shadow, you have to Enable it in inspector.
+
+> CanvasModulate
+
+It makes the whole scene's color as defined, only Light2D can avoid the effect. Can be used to make dark night environment.
