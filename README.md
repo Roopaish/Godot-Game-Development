@@ -686,4 +686,25 @@ func update_motion(delta):
 		motion.x = lerp(motion.x, 0, FRICTION)
 ```
 
-> 
+> AutoTiling
+
+Pros:
+
+- Make it easier to make levels
+- Very easy to tweak levels
+- Can set up collision, occlusion and navigation in one place
+
+Setup:
+
+Create a new scene add a Node2D and add child Sprite. Add tilesheet sprite to texture of Sprite node. Click Scene -> Covert to -> Tileset and save it as .tres.  
+Now In scene where you want to use the tileset add a TileMap node and load that saved tileset.
+
+Click on the tileset name, bottom panel will show up. Click on the icon appeared in the left panel. Click on New Autotile and select a region for it.  
+You can select the region of tileset with snapping and also configure the snap from inspector.  
+Under selected tile in inspector, name the tile as you want. Under Tile Mode, select AUTO_TILE id not selected. And set the size of Autotile Bitmask, 3x3(minimal) is a great choice as it grabs many details.
+
+Chnage Subtle size to the size of the tile you're using.
+
+BitMask:  
+Click on Bitmask on bottom panel and start painting the tiles with left click, right click to erase. For eg: For walls, paint the area where excluding walls itself.  
+Now Select TileMap node and start painting on the Levels. All the walls will now be painted nicely.
