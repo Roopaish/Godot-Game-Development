@@ -644,4 +644,13 @@ To add particles in the system. Click on Process material and choose a new Parti
 
 > Theme
 
-1. 
+1. Player: Expert thief who sneaks through dark and dangerous location to steal valuables and get out undetected.
+2. Top-Down game
+3. Guard or camera can detect briefly
+4. Dark themed - switch from normal vision to night vision with penalties
+5. Splash screen with Tutorial, Level 1-2-3 and Quit
+
+> Inherited Screen/Script
+
+We can create a Character scene and a script attached to it. Now if we want ot create Player or Enemy, we can inherit scene and script from Character. This will helps in maintaining and writing code efficiently.  
+  
