@@ -722,3 +722,8 @@ It needs a lightmap texture, a picture with a beam of light. Light is blocked by
 > CanvasModulate
 
 It makes the whole scene's color as defined, only Light2D can avoid the effect. Can be used to make dark night environment.
+
+> Make a node block light
+
+Add `LightOccluder2D` as a child. Click on Occluder proerty -> New OccluderPloygon2D. Now cover the node/sprite with polygon points, like collisionShape. Now the node/sprite will cast shadows. Click on the name of Occluder in inspector and choose cull mode as clockwise or counter-clockwise, so that the node/sprite will be seen when light is applied to it.
+
