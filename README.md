@@ -2,9 +2,12 @@
 
 Games made with [Godot Engine](https:#godotengine.org/), free and open-source game engine.
 
+> Note: While playing online, mouse click on the screen for the first time, if something feels off.
+
 - [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
   [Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
-- [Hoppy Days - Discovering the Engine](#hoppy-days---discovering-the-engine)
+- [Hoppy Days - Discovering the Engine](#hoppy-days---discovering-the-engine)  
+  [Play Online](https://roopaish.github.io/Godot-Game-Development/Hoppy%20Days) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/HoppyDays)
 - [Heist Meisters - Top-Down-Stealth](#heist-meisters---top-down-stealth)
 - CubeDude Kickabout - 3D Local Multiplayer
 - Food Fight - Advanced 3D
@@ -639,3 +642,6 @@ To add particles in the system. Click on Process material and choose a new Parti
 
 ## Heist Meisters - Top-Down-Stealth
 
+> Theme
+
+1. 
