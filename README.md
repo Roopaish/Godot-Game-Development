@@ -5,7 +5,7 @@ Games made with [Godot Engine](https:#godotengine.org/), free and open-source ga
 - [Loony Lips - Discovering GDScript](#loony-lips---discovering-gdscript)  
   [Play Online](https://roopaish.github.io/Godot-Game-Development/Loony%20Lips/exports.html) [Download for Windows](https://github.com/Roopaish/Godot-Game-Development/releases/tag/exe)
 - [Hoppy Days - Discovering the Engine](#hoppy-days---discovering-the-engine)
-- Heist Meisters - Top-Down-Stealth
+- [Heist Meisters - Top-Down-Stealth](#heist-meisters---top-down-stealth)
 - CubeDude Kickabout - 3D Local Multiplayer
 - Food Fight - Advanced 3D
 
@@ -635,4 +635,7 @@ func _process(delta):
 > Particles2D
 
 To add particles in the system. Click on Process material and choose a new ParticlesMaterial and and play around with the values.
+
+
+## Heist Meisters - Top-Down-Stealth
 
