@@ -26,5 +26,4 @@ position = Vector2( -2.00226, -0.166855 )
 shape = SubResource( 1 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
-visible = false
 occluder = SubResource( 2 )
