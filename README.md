@@ -639,7 +639,6 @@ func _process(delta):
 
 To add particles in the system. Click on Process material and choose a new ParticlesMaterial and and play around with the values.
 
-
 ## Heist Meisters - Top-Down-Stealth
 
 > Theme
@@ -652,5 +651,39 @@ To add particles in the system. Click on Process material and choose a new Parti
 
 > Inherited Screen/Script
 
-We can create a Character scene and a script attached to it. Now if we want ot create Player or Enemy, we can inherit scene and script from Character. This will helps in maintaining and writing code efficiently.  
-  
+We can create a Character scene and a script attached to it. Now if we want ot create Player or Enemy, we can inherit scene and script from Character. This will helps in maintaining and writing code efficiently.
+
+To create a inherited scene: Click on Scene -> New Inherited Scene. A new scene will be created which can be modified as needed. Anything that is greyed out is inherited node.  
+To create a inherited scene: Detach the script -> Attach new script -> In the prompt Choose path of script to be inherited -> Create
+
+```gd
+# Instead of extends with a node, the new script will extend the inherited script.
+extends "res://Scripts/Character.gd"
+```
+
+> Player's Movement
+
+```gd
+func _process(delta):
+	update_motion(delta)
+	move_and_slide(motion)
+
+func update_motion(delta):
+	look_at(get_global_mouse_position()) # The character will face to mouse cursor
+
+	if Input.is_action_pressed("ui_up") and not Input.is_action_pressed("ui_down"):
+		motion.y = clamp((motion.y - SPEED), -MAX_SPEED, 0) # clamp(preferred_value, minimum, maximum)
+	elif Input.is_action_pressed("ui_down") and not Input.is_action_pressed("ui_up"):
+		motion.y = clamp((motion.y + SPEED), 0, MAX_SPEED)
+	else:
+		motion.y = lerp(motion.y, 0, FRICTION) # Linearly interpolate the motion from 0 to FRICTION(0.1) when stopped, To give a sensation of friction
+
+	if Input.is_action_pressed("ui_left") and not Input.is_action_pressed("ui_right"):
+		motion.x = clamp((motion.x - SPEED), -MAX_SPEED, 0)
+	elif Input.is_action_pressed("ui_right") and not Input.is_action_pressed("ui_left"):
+		motion.x = clamp((motion.x + SPEED), 0, MAX_SPEED)
+	else:
+		motion.x = lerp(motion.x, 0, FRICTION)
+```
+
+> 
