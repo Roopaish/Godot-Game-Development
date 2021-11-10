@@ -708,3 +708,9 @@ Chnage Subtle size to the size of the tile you're using.
 BitMask:  
 Click on Bitmask on bottom panel and start painting the tiles with left click, right click to erase. For eg: For walls, paint the area where excluding walls itself.  
 Now Select TileMap node and start painting on the Levels. All the walls will now be painted nicely.
+
+Collision:  
+Now to add collision for walls made by this process. Click on Collision and start selecting all walls used in the bitmask using square or poligon icons.
+
+> Light2D
+
